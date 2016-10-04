@@ -17,4 +17,7 @@
 body {
   background-color: green;
   background-size: cover;
+  max-height: 100vh;
+  max-width: 100vw;
+ /* overflow: hidden;*/
 }

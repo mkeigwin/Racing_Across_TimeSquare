@@ -5,14 +5,16 @@ $(document).ready(function() {
   var player = $('#player');
   var marginleft = $('#player').offset().left;
   var margintop = $('#player').offset().top;
+  console.log(margintop);
+  console.log(window.innerHeight);
 
   $('body').on('keyup', movePlayer);
   $(document).keyup(winner);
 
   function movePlayer(e) {
     if (e.which===39) {
-      if (marginleft >= ($('window').width()-50)) {
-        marginleft=($('window').width()-50);
+      if (marginleft >= (window.innerWidth-50)) {
+        marginleft=(window.innerWidth-50);
       } else {
         marginleft +=10;
         player.css('left', marginleft + 'px');
@@ -29,8 +31,8 @@ $(document).ready(function() {
       }
     }
     if (e.which===40) {
-     if (margintop >= ($('window').height()-50)) {
-        margintop=($('window').height()-50);
+     if (margintop >= (window.innerHeight-50)) {
+        margintop=(window.innerHeight - 50);
      } else {
         margintop +=10;
         player.css('top', margintop + 'px');
@@ -47,11 +49,8 @@ $(document).ready(function() {
   }
 
  function winner () {
-  // console.log(marginleft, ($(window).width()-200))
-  // if (marginleft >= ($(window).width()-200)) {
   if ((marginleft >= ($(window).width()-100)) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) {
     alert("winner");
-    console.log("winner");
   }
  }
 
