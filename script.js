@@ -54,5 +54,15 @@ $(document).ready(function() {
   }
  }
 
+ function randomdiv () {
+  var random = $('.random');
+  var moveleft =random.css('left', (Math.floor(Math.random() * ($(window).width()-50))));
+  var movetop =random.css('top', (Math.floor(Math.random() * ($(window).height()-50))));
+  $('.random').animate({
+    left: moveleft + "px",
+    top:  movetop + "px"
+    }, 2000, 'swing', randomdiv);
+ }
+ randomdiv ();
 
 });
