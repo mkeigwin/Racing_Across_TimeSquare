@@ -25,4 +25,5 @@ body {
   height: 50px;
   background-color: blue;
   position: absolute;
+  transition: left 3s, top 3s;
 }

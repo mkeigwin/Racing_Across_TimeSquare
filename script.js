@@ -5,8 +5,6 @@ $(document).ready(function() {
   var player = $('#player');
   var marginleft = $('#player').offset().left;
   var margintop = $('#player').offset().top;
-  console.log(margintop);
-  console.log(window.innerHeight);
 
   $('body').on('keyup', movePlayer);
   $(document).keyup(winner);
@@ -49,20 +47,24 @@ $(document).ready(function() {
   }
 
  function winner () {
-  if ((marginleft >= ($(window).width()-100)) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) {
+  if ((marginleft >= ($(window).width()-50)) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) {
     alert("winner");
   }
  }
 
- function randomdiv () {
-  var random = $('.random');
-  var moveleft =random.css('left', (Math.floor(Math.random() * ($(window).width()-50))));
-  var movetop =random.css('top', (Math.floor(Math.random() * ($(window).height()-50))));
-  $('.random').animate({
-    left: moveleft + "px",
-    top:  movetop + "px"
-    }, 2000, 'swing', randomdiv);
+function randomdiv () {
+  var divnum = $('.random').length;
+  for (i=0; i < divnum; i++) {
+  var random = $('.random').eq(i);
+  var posleft =random.css('left', (Math.floor(Math.random() * ($(window).width()-50))));
+  var postop =random.css('top', (Math.floor(Math.random() * ($(window).height()-50))));
+  $('.random').eq(i).animate({
+    left: posleft + "px",
+    top:  postop + "px"
+    }, 2000, randomdiv);
  }
+}
  randomdiv ();
+
 
 });
