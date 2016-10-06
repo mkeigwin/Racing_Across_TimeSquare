@@ -2,8 +2,24 @@
   width: 50px;
   height: 50px;
   background-color: red;
-  left: 100%;
-  top: 40%;
+  left: 0px;
+  top: 50%;
+  position: absolute;
+}
+#pt1 {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  left: 66%;
+  top: 33%;
+  position: absolute;
+}
+#pt2 {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  left: 33%;
+  top: 66%;
   position: absolute;
 }
 #finish {
@@ -26,4 +42,22 @@ body {
   background-color: blue;
   position: absolute;
   transition: left 3s, top 3s;
+}
+.win {
+  height: 30%;
+  width: 100%;
+  background-color: rgba(122, 122, 122, .8);
+  position: absolute;
+  top: 30%;
+  margin: 0px;
+  padding: 0px;
+}
+.lose {
+  height: 30%;
+  width: 100%;
+  background-color: rgba(244, 78, 66,.8);
+  position: absolute;
+  top: 30%;
+  margin: 0px;
+  padding: 0px;
 }
