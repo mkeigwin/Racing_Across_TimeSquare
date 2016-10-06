@@ -2,8 +2,8 @@
   width: 50px;
   height: 50px;
   background-color: red;
-  left: 0px;
-  top: 50%;
+  left: 100%;
+  top: 40%;
   position: absolute;
 }
 #finish {
