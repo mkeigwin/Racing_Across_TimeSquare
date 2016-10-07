@@ -6,7 +6,7 @@ $(document).ready(function() {
   var enemy = $('.random');
   var marginleft = $('#player').offset().left;
   var margintop = $('#player').offset().top;
-  var divnum = $('.random').length;
+  var divnum = enemy.length;
   var counter = 0;
   var winbox = $('.win').hide();
   var losebox = $('.lose').hide();
@@ -23,7 +23,7 @@ $(document).ready(function() {
       } else {
         marginleft +=10;
         player.css('left', marginleft + 'px');
-        //player.attr('src', 'wefawuhfa.png')
+        player.css({'background': 'url("officemanright.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
         //just an idea to change character based off of which direction they're facing
       }
     }
@@ -33,6 +33,7 @@ $(document).ready(function() {
       } else {
         marginleft -=10;
         player.css('left', marginleft + 'px');
+        player.css({'background': 'url("officemanleft.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
       }
     }
     if (e.which===40) {
@@ -41,6 +42,7 @@ $(document).ready(function() {
      } else {
         margintop +=10;
         player.css('top', margintop + 'px');
+        player.css({'background': 'url("officeman2.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
      }
     }
     if (e.which===38) {
@@ -49,13 +51,14 @@ $(document).ready(function() {
       } else {
         margintop -=10;
         player.css('top', margintop + 'px');
+        player.css({'background': 'url("officemantop.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
       }
     }
   }
 
   function point1 () {
   if ((((margintop >= (($(window).height())*(2/8))) && (margintop <= (($(window).height())*(3/8)))) && ((marginleft >= (($(window).width())*(5/8))) && (marginleft <= (($(window).width())*(6/8))))) && (counter ===0)) {
-   $('.mission p').text('go to point 2');
+   $('.mission p').text('Pick Up Newspaper');
    $('#pt1').fadeOut();
    counter++;
   }
@@ -63,11 +66,11 @@ $(document).ready(function() {
 
  function point2 () {
   if ((((margintop >= (($(window).height())*(5/8))) && (margintop <= (($(window).height())*(6/8)))) && ((marginleft >= (($(window).width())*(2/8))) && (marginleft <= (($(window).width())*(3/8))))) && (counter ===1)) {
-   $('.mission p').text('go to finish');
+   $('.mission p').text('Go To Finish and Leave Times Square!!!');
    $('#pt2').fadeOut();
    counter++;
   } else if ((((margintop >= (($(window).height())*(5/8))) && (margintop <= (($(window).height())*(6/8)))) && ((marginleft >= (($(window).width())*(2/8))) && (marginleft <= (($(window).width())*(3/8))))) && (counter ===0)) {
-  $('.mission p').text('OOOOP\'S go back to point 1');
+  $('.mission p').text('OOOOP\'S You Forgot Your Coffee! Go Back and Get It');
 }
 }
 
@@ -75,14 +78,14 @@ $(document).ready(function() {
   if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 2)) {
     $('body').off('keyup');
     $('body').css('background-color', 'purple');
-    $('.random').stop();
+    enemy.stop();
     $('.mission p').text('');
     winbox.fadeIn();
-    $('.win h3').text('YOU WON');
+    $('.win h3').text('YOU\'VE DONE IT! YOU ESCAPED TIMES SQUARE WITHOUT BEING STOPPED');
   } else if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 1)) {
-    $('.mission p').text('OOOOP\'S go back to point 2');
+    $('.mission p').text('OOOOP\'S You Forgot Your Newspaper! Go Back and Get It');
   } else if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 0)) {
-    $('.mission p').text('OOOOP\'S go back to point 1');
+    $('.mission p').text('OOOOP\'S You Forgot Your Coffee! Go Back and Get It');
   }
  }
 
@@ -95,10 +98,10 @@ $(document).ready(function() {
 
   function randomdiv () {
     for (i=0; i < divnum; i++) {
-      var random = $('.random').eq(i);
+      var random = enemy.eq(i);
       var posleft =random.css('left', (Math.floor(Math.random() * ($(window).width()-($(random).width())))));
       var postop =random.css('top', (Math.floor(Math.random() * ($(window).height()-($(random).height())))));
-      $('.random').eq(i).animate({
+      enemy.eq(i).animate({
         left: posleft + "px",
         top:  postop + "px"
         }, 2000, randomdiv);
@@ -119,7 +122,7 @@ $(document).ready(function() {
       if (player.right > enemy.left && player.left < enemy.right && player.top < enemy.bottom && player.bottom > enemy.top) {
         $('body').off('keyup');
         $('body').css('background-color', 'orange');
-        $('.random').stop();
+        enemy.stop();
         $('.mission p').text('');
         $('.lose h3').text('YOU LOSE');
         losebox.fadeIn();

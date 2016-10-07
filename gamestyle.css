@@ -1,45 +1,51 @@
 #player {
-  width: 50px;
-  height: 50px;
-  background-color: red;
+  width: 40px;
+  height: 80px;
+  background: url('officeman2.png');
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
   left: 0px;
   top: 50%;
   position: absolute;
+  z-index: 2;
+  border: 7px solid red;
 }
 #pt1 {
-  width: 50px;
-  height: 50px;
-  background-color: yellow;
+  /*background-color: yellow;*/
+  background: url('coffee.png');
+  width: 60px;
+  height: 60px;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
   left: 66%;
   top: 33%;
-  position: absolute;
-}
+  position: absolute;}
 #pt2 {
-  width: 50px;
-  height: 50px;
-  background-color: yellow;
+  background: url('newspaper.png');
+  width: 60px;
+  height: 60px;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
   left: 33%;
   top: 66%;
   position: absolute;
 }
 #finish {
-  width: 50px;
-  height: 50px;
-  background-color: yellow;
+  background: url('finish.png');
+  width: 25px;
+  height: 90px;
+  background-size: 25px 90px;
+  background-repeat: no-repeat;
   right: 0px;
   top: 50%;
   position: absolute;
 }
 body {
-  background-color: green;
+  background: url('time-square-pic.png') no-repeat center center fixed;
   background-size: cover;
-  max-height: 100vh;
-  max-width: 100vw;
+  z-index: -1;
 }
 .random {
-  width: 50px;
-  height: 50px;
-  background-color: blue;
   position: absolute;
   transition: left 3s, top 3s;
 }
@@ -51,6 +57,7 @@ body {
   top: 30%;
   margin: 0px;
   padding: 0px;
+  z-index: 3;
 }
 .lose {
   height: 30%;
@@ -60,4 +67,47 @@ body {
   top: 30%;
   margin: 0px;
   padding: 0px;
+  z-index: 3;
+}
+#enemy1 {
+  background: url('captainamerica_shield.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
+}
+#enemy2 {
+  background: url('german_m2.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
+}
+#enemy3 {
+  background: url('hulk.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
+}
+#enemy4 {
+  background: url('kenyan_f1.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
+}
+#enemy5 {
+  background: url('modernguy05.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
+}
+#enemy6 {
+  background: url('snowwhite.png');
+  width: 40px;
+  height: 80px;
+  background-size: 40px 80px;
+  background-repeat: no-repeat;
 }
