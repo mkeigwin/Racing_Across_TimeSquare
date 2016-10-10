@@ -1,0 +1,10 @@
+body {
+  background-image: url("landning.jpg");
+  /*background: url('landning-background.jpg') no-repeat center center fixed;*/
+  background-size: cover;
+/*  z-index: -1;*/
+
+}
+button {
+  position: absolute;
+}

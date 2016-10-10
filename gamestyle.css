@@ -11,7 +11,6 @@
   border: 7px solid red;
 }
 #pt1 {
-  /*background-color: yellow;*/
   background: url('coffee.png');
   width: 60px;
   height: 60px;
@@ -27,7 +26,7 @@
   background-size: 60px 60px;
   background-repeat: no-repeat;
   left: 33%;
-  top: 66%;
+  top: 68%;
   position: absolute;
 }
 #finish {
@@ -68,6 +67,18 @@ body {
   margin: 0px;
   padding: 0px;
   z-index: 3;
+}
+.mission {
+  height: 12%;
+  width: auto;
+  background-color: rgba(122, 122, 122, .3);
+  position: absolute;
+  color: white;
+  margin: 0px;
+  padding: 0 5px 0 5px;
+  z-index: 3;
+  font-size: 4vh;
+  border: 3px solid white;
 }
 #enemy1 {
   background: url('captainamerica_shield.png');
