@@ -34,7 +34,6 @@ $(document).ready(function() {
   // }
   // numEnemy ();
 
- // $('body').on('keydown', refresh);
   function refresh (e) {
     if(e.which == 13) {
         location.reload();
@@ -114,6 +113,10 @@ function point2 () {
     $('body').css('background-color', 'purple');
     enemy.stop();
     $('.mission p').text('');
+    $('.mission').css({
+          'border': 'none',
+          'background-color': 'rgba(122, 122, 122, 0)'
+        });
     winbox.fadeIn();
     $('.win h3').text('YOU\'VE DONE IT! YOU ESCAPED TIMES SQUARE WITHOUT BEING STOPPED');
     $('body').on('keydown', refresh);

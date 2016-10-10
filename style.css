@@ -1,10 +1,66 @@
+*{
+  margin:0;
+  padding:0;
+}
 body {
-  background-image: url("landning.jpg");
-  /*background: url('landning-background.jpg') no-repeat center center fixed;*/
+  background: url('landing.jpg') no-repeat center center fixed;
   background-size: cover;
-/*  z-index: -1;*/
-
+  z-index: -1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: 'Play', sans-serif;
+  color: white;
+  font-size: 10vh;
+}
+h2 {
+  font-family: 'Exo', sans-serif;
+  font-size: 4vh;
 }
 button {
   position: absolute;
+}
+.header {
+  margin-top: 4vh;
+}
+.brief {
+   margin-top: 25vh;
+}
+.buy {
+  margin-top: 12vh;
+  display: inline-block;
+}
+.buy img {
+  height: 5vh;
+  width: auto;
+}
+.character {
+  margin-top: 3vh;
+}
+.info {
+  margin-top: 5vh;
+  background-color: white;
+  position: relative;
+  border-radius: 3px;
+  height: 300px;
+  width: 400px;
+}
+.instruction {
+  font-family: 'Exo', sans-serif;
+  font-size: 4vh;
+}
+@media (max-width: 470px) {
+  h1 {
+    font-size: 6vh;
+  }
+  h2 {
+    font-size: 3vh;
+  }
+  .buy img {
+  height: 3vh;
+}
 }
