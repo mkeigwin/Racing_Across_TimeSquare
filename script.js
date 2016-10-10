@@ -19,6 +19,7 @@ $(document).ready(function() {
   $('body').on('keydown', function() {
     collide (player, enemy);
   });
+  user();
 
   // function numEnemy () {
   //   if (window.matchMedia('(max-width: 900px)')) {
@@ -169,6 +170,28 @@ function point2 () {
         losebox.fadeIn();
         $('body').on('keydown', refresh);
       }
+    }
+  }
+
+  function user () {
+    var searchUrl = window.location.search.substring(1);
+    var split = [];
+    split = searchUrl.split("&");
+    var obj = {};
+    var form = document.querySelector('form');
+
+    for (i = 0; i < split.length; i++) {
+      var arr = [];
+      arr = split[i].split("=");
+      var key = arr[0];
+      var value = arr[1];
+
+      var p1 = $('<p>');
+      var p2 = $('<p>');
+      p1.text(key);
+      p2.text(value);
+      $('.playerid').append(p1);
+      $('.playerid').append(p2);
     }
   }
 

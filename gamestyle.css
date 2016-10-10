@@ -80,6 +80,22 @@ body {
   font-size: 4vh;
   border: 3px solid white;
 }
+.playerid {
+  height: 12%;
+  width: auto;
+  background-color: rgba(122, 122, 122, .3);
+  position: absolute;
+  right: 1%;
+  color: white;
+  margin: 0px;
+  z-index: 3;
+  border: 3px solid white;
+}
+.playerid p {
+  display: inline-block;
+  padding: 0 5px 0 5px;
+  font-size: 4vh;
+}
 #enemy1 {
   background: url('captainamerica_shield.png');
   width: 40px;
