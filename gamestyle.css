@@ -49,24 +49,38 @@ body {
   transition: left 3s, top 3s;
 }
 .win {
-  height: 30%;
+  height: 50%;
   width: 100%;
   background-color: rgba(122, 122, 122, .8);
   position: absolute;
-  top: 30%;
-  margin: 0px;
-  padding: 0px;
+  top: 20%;
   z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .lose {
-  height: 30%;
+  height: 50%;
   width: 100%;
   background-color: rgba(244, 78, 66,.8);
   position: absolute;
-  top: 30%;
-  margin: 0px;
-  padding: 0px;
+  top: 20%;
   z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  font-size: 3vh;
+  color: black;
+}
+h3 {
+  font-size: 10vh;
+  margin-top: 0px;
 }
 .mission {
   height: 12%;
@@ -138,3 +152,4 @@ body {
   background-size: 40px 80px;
   background-repeat: no-repeat;
 }
+

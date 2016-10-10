@@ -1,5 +1,3 @@
-console.log('testing javascript');
-
 $(document).ready(function() {
 
   var player = $('#player');
@@ -18,29 +16,21 @@ $(document).ready(function() {
   randomdiv ();
   $('body').on('keydown', function() {
     collide (player, enemy);
+
+//triggers collide function when player hits enemy while moving into them
   });
   user();
 
-  // function numEnemy () {
-  //   if (window.matchMedia('(max-width: 900px)')) {
-  //     $('#enemy6').hide();
-  //   }
-
-  //   if (window.matchMedia('(max-width: 750px)')) {
-  //     $('#enemy5').hide();
-  //   }
-  //   if (window.matchMedia('(max-width: 500px)')) {
-  //     $('#enemy4').hide();
-  //   }
-  // }
-  // numEnemy ();
-
+//fuction where hitting enter key refreshes the page so game can be played again
   function refresh (e) {
     if(e.which == 13) {
         location.reload();
     }
-  }
+  };
 
+//function in which hitting the arrow keys moves the player around the board by adding/ subtracting left and top values
+//use if function within if fuction to determine if player should move when key is pressed based off of the size pf window
+//if player tries to move outside window, reset player location to the edge of the screen
   function movePlayer(e) {
     if (e.which===39) {
       if (marginleft >= (window.innerWidth-($(player).width()))) {
@@ -49,6 +39,8 @@ $(document).ready(function() {
         marginleft +=10;
         player.css('left', marginleft + 'px');
         player.css({'background': 'url("officemanright.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
+
+//include image in each keydown so that the player image changes direction based off of arrow hit
       }
     }
     if (e.which===37) {
@@ -78,35 +70,48 @@ $(document).ready(function() {
         player.css({'background': 'url("officemantop.png")', 'background-size': '40px 80px', 'background-repeat': 'no-repeat', 'border': 'none'});
       }
     }
+  };
+
+  var pt1height = ((Math.ceil(Math.random() * ($(window).height()-($('#pt1').height())*1.5)))/8);
+
+//finds a random point in the height of the window. intervals it between 8ths
+  var pt1width = ((Math.ceil(Math.random() * ($(window).width()-($('#pt1').width())*1.5)))/8);
+
+//finds a random point in the width of the window. intervals it between 8ths
+  $('#pt1').css('top', (pt1height*6.5) + 'px');
+
+//positions point one image on page height
+  $('#pt1').css('left', (pt1width*6.5) + 'px');
+
+//positions point one image on page width
+  function point1 () {
+    if ((((margintop >= (pt1height*5)) && (margintop <= (pt1height*8))) && ((marginleft >= (pt1width*5)) && (marginleft <= (pt1width*8)))) && (counter ===0)) {
+     $('.mission p').text('Pick Up Newspaper');
+     $('#pt1').fadeOut();
+     counter++;
+    }
+
+//makes a range in which if the player goes into it, registers in counter and allows you to move on to next point
+  };
+
+  var pt2height = ((Math.ceil(Math.random() * ($(window).height()-($('#pt2').height())*1.5)))/8);
+  var pt2width = ((Math.ceil(Math.random() * ($(window).width()-($('#pt2').width())*1.5)))/8);
+  $('#pt2').css('top', (pt2height*6.5) + 'px');
+  $('#pt2').css('left', (pt2width*6.5) + 'px');
+
+  function point2 () {
+    if ((((margintop >= (pt2height*5)) && (margintop <= (pt2height*8))) && ((marginleft >= (pt2width*5)) && (marginleft <= (pt2width*8)))) && (counter ===1)) {
+     $('.mission p').text('Go To Finish and Leave Times Square!!!');
+     $('#pt2').fadeOut();
+     counter++;
+
+//makes a range in which if the player goes into it, registers in counter and allows you to move on to next point
+    } else if ((((margintop >= (pt2height*5)) && (margintop <= (pt2height*8))) && ((marginleft >= (pt2width*5)) && (marginleft <= (pt2width*8)))) && (counter ===0)) {
+    $('.mission p').text('OOOOP\'S You Forgot Your Coffee! Go Back and Get It');
   }
 
-var pt1height = ((Math.ceil(Math.random() * ($(window).height()-($('#pt1').height())*1.5)))/8);
-var pt1width = ((Math.ceil(Math.random() * ($(window).width()-($('#pt1').width())*1.5)))/8);
-$('#pt1').css('top', (pt1height*6.5) + 'px');
-$('#pt1').css('left', (pt1width*6.5) + 'px');
-
-function point1 () {
-  if ((((margintop >= (pt1height*5)) && (margintop <= (pt1height*8))) && ((marginleft >= (pt1width*5)) && (marginleft <= (pt1width*8)))) && (counter ===0)) {
-   $('.mission p').text('Pick Up Newspaper');
-   $('#pt1').fadeOut();
-   counter++;
-  }
-}
-
-var pt2height = ((Math.ceil(Math.random() * ($(window).height()-($('#pt2').height())*1.5)))/8);
-var pt2width = ((Math.ceil(Math.random() * ($(window).width()-($('#pt2').width())*1.5)))/8);
-$('#pt2').css('top', (pt2height*6.5) + 'px');
-$('#pt2').css('left', (pt2width*6.5) + 'px');
-
-function point2 () {
-  if ((((margintop >= (pt2height*5)) && (margintop <= (pt2height*8))) && ((marginleft >= (pt2width*5)) && (marginleft <= (pt2width*8)))) && (counter ===1)) {
-   $('.mission p').text('Go To Finish and Leave Times Square!!!');
-   $('#pt2').fadeOut();
-   counter++;
-  } else if ((((margintop >= (pt2height*5)) && (margintop <= (pt2height*8))) && ((marginleft >= (pt2width*5)) && (marginleft <= (pt2width*8)))) && (counter ===0)) {
-  $('.mission p').text('OOOOP\'S You Forgot Your Coffee! Go Back and Get It');
-}
-}
+//makes a range in which if the player goes into it, tells player to go back to missed point
+  };
 
  function winner () {
   if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 2)) {
@@ -119,14 +124,20 @@ function point2 () {
           'background-color': 'rgba(122, 122, 122, 0)'
         });
     winbox.fadeIn();
-    $('.win h3').text('YOU\'VE DONE IT! YOU ESCAPED TIMES SQUARE WITHOUT BEING STOPPED');
+    $('.win h3').text('YOU\'VE ESCAPED FROM TIMES SQUARE!');
     $('body').on('keydown', refresh);
+
+//makes a range in which if the player goes into it, registers in counter and sends win alert
   } else if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 1)) {
     $('.mission p').text('OOOOP\'S You Forgot Your Newspaper! Go Back and Get It');
+
+    //makes a range in which if the player goes into it, tells player to go back to missed point
   } else if (((marginleft >= ($(window).width()-($(player).width()))) && ((margintop >= (($(window).height())*(4/9))) && (margintop <= (($(window).height())*(5/9))))) && (counter === 0)) {
     $('.mission p').text('OOOOP\'S You Forgot Your Coffee! Go Back and Get It');
+
+//makes a range in which if the player goes into it, tells player to go back to missed point
   }
- }
+ };
 
  setInterval(function () {
     collide(player, enemy);
@@ -134,6 +145,8 @@ function point2 () {
   setInterval(function () {
     winner();
   }, 10);
+
+//since enemy div's are always moving this listens for them every .01 seconds and allows divs to stop animation instead of starting again
 
   function randomdiv () {
     for (i=0; i < divnum; i++) {
@@ -145,7 +158,9 @@ function point2 () {
         top:  postop + "px"
         }, 2000, randomdiv);
     }
-  }
+
+//finds the enemy div and makes a random height and width fot the div to move to. moves every 2 seconds and after move it finds new values and moves it to there
+  };
 
   function collide (player, enemy) {
     for (i=0; i < divnum; i++) {
@@ -153,11 +168,17 @@ function point2 () {
       player.left = $(player).offset().left;
       player.right = Number($(player).offset().left) + Number($(player).width());
       player.bottom = Number($(player).offset().top) + Number($(player).height());
+
+//finds the location of all 4 sides of player
       enemy.top = $(enemy).eq(i).offset().top;
       enemy.left = $(enemy).eq(i).offset().left;
       enemy.right = Number($(enemy).eq(i).offset().left) + Number($(enemy).eq(i).width());
       enemy.bottom = Number($(enemy).eq(i).offset().top) + Number($(enemy).eq(i).height());
+
+//finds the location of all 4 sides of enemy div
       if (player.right > enemy.left && player.left < enemy.right && player.top < enemy.bottom && player.bottom > enemy.top) {
+
+//sets conditions which apply if player and one of the enemy div overlap
         $('body').off('keydown');
         $('body').css('background-color', 'orange');
         enemy.stop();
@@ -169,9 +190,11 @@ function point2 () {
         $('.lose h3').text('YOU LOSE');
         losebox.fadeIn();
         $('body').on('keydown', refresh);
+
+//pop up alert that player has lost
       }
     }
-  }
+  };
 
   function user () {
     var searchUrl = window.location.search.substring(1);
@@ -180,19 +203,23 @@ function point2 () {
     var obj = {};
     var form = document.querySelector('form');
 
+//takes information from get out of the url and splits it up after &
     for (i = 0; i < split.length; i++) {
       var arr = [];
       arr = split[i].split("=");
       var key = arr[0];
       var value = arr[1];
 
+//takes = and moves splits between key and values
       var p1 = $('<p>');
       var p2 = $('<p>');
       p1.text(key);
       p2.text(value);
       $('.playerid').append(p1);
       $('.playerid').append(p2);
+
+//appends value and key onto the div so it can be displayed on the game.html page
     }
-  }
+  };
 
 });
