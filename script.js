@@ -146,6 +146,7 @@ $(document).ready(function() {
     winner();
   }, 10);
 
+//joey helped with this so that the random moving would stop
 //since enemy div's are always moving this listens for them every .01 seconds and allows divs to stop animation instead of starting again
 
   function randomdiv () {
@@ -159,6 +160,7 @@ $(document).ready(function() {
         }, 2000, randomdiv);
     }
 
+//inspired this code from paris, but after got ideas, wrote it myself
 //finds the enemy div and makes a random height and width fot the div to move to. moves every 2 seconds and after move it finds new values and moves it to there
   };
 
@@ -178,6 +180,7 @@ $(document).ready(function() {
 //finds the location of all 4 sides of enemy div
       if (player.right > enemy.left && player.left < enemy.right && player.top < enemy.bottom && player.bottom > enemy.top) {
 
+// got ideas for collide with this http://area36.nl/2014/12/creating-your-own-collision-detection-function-in-javascript/  added info obviously such as look
 //sets conditions which apply if player and one of the enemy div overlap
         $('body').off('keydown');
         $('body').css('background-color', 'orange');
