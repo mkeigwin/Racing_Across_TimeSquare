@@ -180,7 +180,7 @@ $(document).ready(function() {
 //finds the location of all 4 sides of enemy div
       if (player.right > enemy.left && player.left < enemy.right && player.top < enemy.bottom && player.bottom > enemy.top) {
 
-// got ideas for collide with this http://area36.nl/2014/12/creating-your-own-collision-detection-function-in-javascript/  added info obviously such as look
+// got ideas for collide with this http://area36.nl/2014/12/creating-your-own-collision-detection-function-in-javascript/  added info obviously such as loop
 //sets conditions which apply if player and one of the enemy div overlap
         $('body').off('keydown');
         $('body').css('background-color', 'orange');
